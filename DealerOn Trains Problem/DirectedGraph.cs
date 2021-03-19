@@ -134,19 +134,22 @@ namespace DealerOn_Trains_Problem
         /// Creates a new Node object to add to the graph.
         /// </summary>
         /// <remarks>
-        /// Will not create a new node if the node name provided matches the name
-        /// of a pre-existing node.
+        /// Will instead return a pre-existing Node object if the node name provided matches 
+        /// the name of a pre-existing node.
         /// </remarks>
         /// <param name="name">A character representing the name of the new node.</param>
-        /// <returns>Boolean; returns true if the node was created, otherwise false.</returns>
-		public bool AddNode(char name)
+        /// <returns>Returns either the newly created Node object, or a Node object with the
+        /// same name as the param "name".</returns>
+		public Node AddNode(char name)
         {
-			if (GetNode(name) == null)
+            Node m = GetNode(name);
+			if (m == null)
 			{
-				nodes.Add(new Node(name));
-				return true;
+                Node n = new Node(name);
+                nodes.Add(n);
+                return n;
 			}
-			else return false;
+            else return m;
         }
 
         /// <summary>
