@@ -1,7 +1,7 @@
 # DealerOn-Trains-Problem
 My solution for the Trains problem presented in the DealerOn Development Candidate Coding Test.
 
-# Design Explanation
+## Design Explanation
 
 ## Assumptions regarding User Input
 * The program reads the  `input.txt` file in the `DealerOn Trains Problem` directory to get the user's input. The user is free to make any changes to the text file to edit their input to the program.
