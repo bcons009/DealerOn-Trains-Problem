@@ -59,7 +59,7 @@ namespace DealerOn_Trains_Problem
         /// <param name="n">The Node object to search for when looking
         /// through all the edges in the edges list.</param>
         /// <returns>
-        /// Returns the Edge between the current Node and the Node
+        /// The Edge between the current Node and the Node
         /// specified in the argument Node n. Returns null if there is no Edge 
         /// found between the current Node and Node n.
         /// </returns>

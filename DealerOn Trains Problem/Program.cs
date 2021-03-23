@@ -8,6 +8,13 @@ namespace DealerOn_Trains_Problem
         // Splits input by ', ' and stores split into array/list
         // Check that each string in array is valid input
         // Return string array if input is valid, otherwise null
+        /// <summary>
+        /// A method that parses the user's input. Checks if the user input is correctly
+        /// formatted for use by the program.
+        /// </summary>
+        /// <param name="txt">The string containing all of the characters found in input.txt</param>
+        /// <returns>String array containing all the elements in the list of strings found in the 
+        /// user input, if the input is in the correct format. Otherwise, returns null.</returns>
         static string[] ParseInput(string txt)
         {
             // Assume input strings are separated by commas
@@ -17,6 +24,7 @@ namespace DealerOn_Trains_Problem
 
             for(int i = 0; i < input.Length; i++)
             {
+                // Remove any whitespace characters or extra commas
                 string temp = input[i].Trim(trimChars);
                 int num;
 
@@ -34,7 +42,6 @@ namespace DealerOn_Trains_Problem
         // Creates a directed graph to represent the train routes of the town. Iterates through 
         // each string element of the input array to create up to two new towns and a new route between
         // those two towns (if a route doesn't exist between them already).
-
         /// <summary>
         /// Initializes and returns a new DirectedGraph object.
         /// </summary>
@@ -54,14 +61,16 @@ namespace DealerOn_Trains_Problem
             return map;
         }
 
-        // TODO: Make sure to add line warning about auto-closing console window
         static void Main(string[] args)
         {
-            // TODO: Console input
+            // Changes the current directory to the first "DealerOn Trains Problem" directory
+            // (where all the .cs files are located)
             Environment.CurrentDirectory = @"..\..\..\";
             string txt, filePath = Directory.GetCurrentDirectory() + @"\input.txt";
             if (!File.Exists(filePath))
             {
+                // Error message if the file is not found in the current directory.
+                // Program terminates after printing this message.
                 Console.WriteLine("Error: \"input.txt\" file does not exist in current directory.");
                 Console.WriteLine("Please include an \"input.txt\" file in the following directory:");
                 Console.WriteLine(Directory.GetCurrentDirectory());
@@ -70,9 +79,11 @@ namespace DealerOn_Trains_Problem
 
             txt = File.ReadAllText(filePath);
             Console.WriteLine("Contents of input.txt:\n" + txt + '\n');
-            string[] input = ParseInput(txt);
+            string[] input = ParseInput(txt);   // input.txt contents are parsed
             if (input == null)
             {
+                // If the input.txt contents are not in the correct format, this error message is displayed.
+                // Program also terminates after printing this message.
                 Console.WriteLine("Error: \"input.txt\" contains improper input formatting.");
                 Console.WriteLine("This program assumes that all input is a list of two letters " +
                     "and an integer for each entry (ex. \"AE5\"), with a comma used to separate" +

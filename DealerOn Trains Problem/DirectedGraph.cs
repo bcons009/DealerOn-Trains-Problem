@@ -27,7 +27,7 @@ namespace DealerOn_Trains_Problem
         /// the name of a pre-existing node.
         /// </remarks>
         /// <param name="name">A character representing the name of the new node.</param>
-        /// <returns>Returns either the newly created Node object, or a Node object with the
+        /// <returns>Either the newly created Node object, or a Node object with the
         /// same name as the param "name".</returns>
 		public Node AddNode(char name)
         {
